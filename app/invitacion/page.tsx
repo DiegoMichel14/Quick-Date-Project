@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react"
 
-const TARGET_DATE       = new Date("2026-05-24T17:00:00")
+const TARGET_DATE       = new Date("2026-05-24T19:00:00")
 const HER_NAME          = "Athziri"
-const RESTAURANT_NAME   = "Restaurante"
-const MAPS_EMBED_SRC    = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.673271430869!2d-103.34997582391178!3d20.682867480881306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b1e5fed2a309%3A0xd735a657ac71194e!2sHerrera%20y%20Cairo%20382%2C%20Centro%20Barranquitas%2C%2044280%20Guadalajara%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1779250516294!5m2!1ses-419!2smx"
+const RESTAURANT_NAME   = "Archipielago Pizza"
+const MAPS_EMBED_SRC    = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d933.2075637883123!2d-103.3672844069031!3d20.67648376513499!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428af1995155151%3A0xe07f5adbd1dbbb49!2sArchipielago%20Pizza!5e0!3m2!1ses-419!2smx!4v1779649106691!5m2!1ses-419!2smx" 
 const SPOTIFY_EMBED_SRC = "https://open.spotify.com/embed/playlist/5I7Mi9fETo9AcrIJn20Gst?utm_source=generator"
 
 const PARTICLE_CONFIG = [
@@ -171,7 +171,23 @@ export default function InvitacionPage() {
               referrerPolicy="no-referrer-when-downgrade"
             />
           </div>
+          
+          <div className="ornament">
+            <div className="ornament-line ornament-line-left" style={{ opacity: 0.4 }} />
+            <span style={{ color: "var(--gold)", fontSize: "12px" }}>✦</span>
+            <div className="ornament-line ornament-line-right" style={{ opacity: 0.4 }} />
+          </div>
+          <p style={{
+            fontSize: "10px", letterSpacing: "0.28em",
+            color: "var(--text-muted)", textTransform: "uppercase",
+            textAlign: "center", lineHeight: 1.8,
+          }}>
+            Para otra opción de restaurante<br />favor de consultar con el autor de esta página
+          </p>
+
         </section>
+
+
 
         {/* Spotify */}
         <section className="fade-in-d4" style={{ width: "100%", display: "flex", flexDirection: "column", gap: "16px" }}>
