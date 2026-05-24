@@ -4,7 +4,7 @@ import { useState, useEffect } from "react"
 
 const TARGET_DATE       = new Date("2026-05-24T17:00:00")
 const HER_NAME          = "Athziri"
-const RESTAURANT_NAME   = "Restaurante El Lugar"
+const RESTAURANT_NAME   = "Restaurante"
 const MAPS_EMBED_SRC    = "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3732.673271430869!2d-103.34997582391178!3d20.682867480881306!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8428b1e5fed2a309%3A0xd735a657ac71194e!2sHerrera%20y%20Cairo%20382%2C%20Centro%20Barranquitas%2C%2044280%20Guadalajara%2C%20Jal.!5e0!3m2!1ses-419!2smx!4v1779250516294!5m2!1ses-419!2smx"
 const SPOTIFY_EMBED_SRC = "https://open.spotify.com/embed/playlist/5I7Mi9fETo9AcrIJn20Gst?utm_source=generator"
 
