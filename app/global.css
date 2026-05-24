@@ -1,0 +1,149 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --gold:       #c9a84c;
+  --gold-dim:   rgba(201, 168, 76, 0.18);
+  --rose:       #c4606a;
+  --rose-light: #e8a0a8;
+  --text:       #f0ebe3;
+  --text-muted: rgba(240, 235, 227, 0.45);
+  --glass:      rgba(255, 255, 255, 0.04);
+
+  /* Safe areas iPhone */
+  --sat: env(safe-area-inset-top);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
+  --sar: env(safe-area-inset-right);
+}
+
+/* ── Reset + color fix ── */
+*, *::before, *::after {
+  box-sizing: border-box;
+  color: inherit;
+}
+
+html {
+  color: var(--text);
+  background: #09090e;
+}
+
+body {
+  color: var(--text);
+  background: #09090e;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  /* Mejora de renderizado en iOS */
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  /* Evita el scroll horizontal accidental */
+  overflow-x: hidden;
+}
+
+h1, .serif { font-family: 'Cormorant Garamond', serif; }
+
+/* ── Mobile touch: elimina el flash azul al tocar ── */
+button, input, a, [role="button"] {
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+/* ── Input: 16px mínimo evita el zoom automático de iOS ── */
+input {
+  font-size: 16px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--text);
+}
+input::placeholder { color: var(--text-muted); }
+
+/* ── Botón dorado (reemplaza los handlers onMouseEnter/Leave) ── */
+.btn-gold {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(201,168,76,0.13), rgba(201,168,76,0.07));
+  border: 1px solid rgba(201,168,76,0.32);
+  border-radius: 14px;
+  padding: 16px;
+  color: var(--gold);
+  font-size: 0.9rem;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 52px; /* touch target mínimo */
+  transition: transform 0.1s, background 0.15s;
+}
+.btn-gold:active {
+  background: linear-gradient(135deg, rgba(201,168,76,0.24), rgba(201,168,76,0.16));
+  border-color: rgba(201,168,76,0.55);
+  transform: scale(0.97);
+}
+
+/* ── Botón de siguiente / sorpresa ── */
+.btn-next {
+  width: 100%;
+  background: linear-gradient(135deg, rgba(201,168,76,0.18), rgba(196,96,106,0.12));
+  border: 1px solid rgba(201,168,76,0.4);
+  border-radius: 14px;
+  padding: 16px;
+  color: var(--text);
+  font-size: 0.95rem;
+  letter-spacing: 0.07em;
+  cursor: pointer;
+  font-family: 'DM Sans', sans-serif;
+  min-height: 52px;
+  transition: transform 0.1s;
+}
+.btn-next:active { transform: scale(0.97); }
+
+/* ── Animaciones ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0);    }
+}
+
+.fade-in    { animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0s   forwards; }
+.fade-in-d1 { animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.2s forwards; opacity: 0; }
+.fade-in-d2 { animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.4s forwards; opacity: 0; }
+.fade-in-d3 { animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.6s forwards; opacity: 0; }
+.fade-in-d4 { animation: fadeUp 1.2s cubic-bezier(0.16,1,0.3,1) 0.8s forwards; opacity: 0; }
+
+/* ── Partículas flotantes ── */
+@keyframes floatUp {
+  0%   { transform: translateY(105vh) rotate(0deg);   opacity: 0;   }
+  8%   { opacity: 0.5; }
+  90%  { opacity: 0.2; }
+  100% { transform: translateY(-8vh)  rotate(540deg); opacity: 0;   }
+}
+.particle {
+  position: absolute;
+  animation: floatUp linear infinite;
+  pointer-events: none;
+  user-select: none;
+  color: var(--gold);
+  opacity: 0;
+}
+
+/* ── Glow pulse del fondo ── */
+@keyframes glowPulse {
+  0%, 100% { opacity: 0.45; transform: translateX(-50%) scale(1);    }
+  50%       { opacity: 0.72; transform: translateX(-50%) scale(1.06); }
+}
+
+/* ── Glass card ── */
+.glass-card {
+  background:               rgba(255,255,255,0.04);
+  border:                   1px solid var(--gold-dim);
+  backdrop-filter:          blur(16px);
+  -webkit-backdrop-filter:  blur(16px);
+}
+
+/* ── Divider ornamental ── */
+.ornament { display: flex; align-items: center; gap: 12px; width: 100%; }
+.ornament-line { flex: 1; height: 1px; }
+.ornament-line-left  { background: linear-gradient(to right, transparent, var(--gold)); }
+.ornament-line-right { background: linear-gradient(to left,  transparent, var(--gold)); }
+
+/* ── Glow en texto ── */
+.glow-text { text-shadow: 0 0 48px rgba(201,168,76,0.28); }
